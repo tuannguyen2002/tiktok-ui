@@ -1,5 +1,5 @@
-function Home() {
+function Following() {
     return <h2>Following page</h2>;
 }
 
-export default Home;
+export default Following;

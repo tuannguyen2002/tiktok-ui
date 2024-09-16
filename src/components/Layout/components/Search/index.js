@@ -5,7 +5,7 @@ import { SearchIcon } from '~/components/Icons';
 import styles from './Search.module.scss';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccoutItem from '~/components/AccoutItem';
+import AccountItem from '~/components/AccountItem';
 import { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -55,9 +55,9 @@ function Search() {
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accouts</h4>
+                        <h4 className={cx('search-title')}>Accounts</h4>
                         {searchResult.map((result) => (
-                            <AccoutItem key={result.id} data={result} />
+                            <AccountItem key={result.id} data={result} />
                         ))}
                     </PopperWrapper>
                 </div>
@@ -68,7 +68,7 @@ function Search() {
                 <input
                     ref={inputRef}
                     value={searchValue}
-                    placeholder="Search accouts and videos"
+                    placeholder="Search accounts and videos"
                     spellCheck={false}
                     onChange={(e) => setSearchValue(e.target.value)}
                     onFocus={() => setShowResult(true)}

@@ -50,15 +50,20 @@ const MENU_ITEMS = [
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard shortcut',
+        title: 'Keyboard shortcuts',
     },
 ];
 
 function Header() {
     const currentUser = true;
 
-    const handleMenuChange = (MenuItem) => {
-        console.log(MenuItem);
+    // Handle logic
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                break;
+            default:
+        }
     };
     const userMenu = [
         {
