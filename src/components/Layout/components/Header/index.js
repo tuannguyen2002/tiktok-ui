@@ -13,7 +13,9 @@ import {
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Tippy from '@tippyjs/react/';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
+import routesConfig from '~/config/routes';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -69,16 +71,16 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faUserLarge} />,
             title: 'View profile',
-            to: '/@hoa',
+            to: '/@hoaa',
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
-            title: 'Get Coins',
+            title: 'Get coins',
             to: '/coin',
         },
         {
             icon: <FontAwesomeIcon icon={faGear} />,
-            title: 'Setting',
+            title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEMS,
@@ -93,9 +95,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo} alt="Tiktok" />
-                </div>
+                </Link>
 
                 <Search />
 

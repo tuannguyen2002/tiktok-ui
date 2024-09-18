@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     --search-border-radius: 92px;
     --search-height: 46px;
     --search-top-spacer: 9px;
@@ -11,7 +11,7 @@
     justify-content: center;
 }
 
-.inner{
+.inner {
     height: 100%;
     width: var(--default-layout-width);
     padding: 0 var(--default-layout-horizontal-spacer);
@@ -20,20 +20,20 @@
     justify-content: space-between;
 }
 
-.logo{
-    //logo here
+.logo {
+    display: flex;
 }
 
-.custom-login{
+.custom-login {
     color: var(--primary);
 }
 
-.actions{
+.actions {
     display: flex;
     align-items: center;
 }
 
-.more-button{
+.more-button {
     font-size: 2rem;
     margin-left: 28px;
     padding: 4px 8px;
@@ -41,7 +41,7 @@
     cursor: pointer;
 }
 
-.action-btn{
+.action-btn {
     position: relative;
     display: flex;
     font-size: 2.4rem;
@@ -61,11 +61,11 @@
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--white);
-    font-family: 'TikTokFont', sans-serif;
+    font-family: var(--font-family);
     background-color: var(--primary);
 }
 
-.user-avatar{
+.user-avatar {
     width: 32px;
     height: 32px;
     object-fit: cover;
@@ -73,5 +73,3 @@
     margin-left: 15px;
     cursor: pointer;
 }
-
-

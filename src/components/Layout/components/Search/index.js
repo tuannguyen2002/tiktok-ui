@@ -1,15 +1,15 @@
-import classNames from 'classnames/bind';
+import { useEffect, useState, useRef } from 'react';
 import { faCircleXmark, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
-import { SearchIcon } from '~/components/Icons';
-
-import styles from './Search.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
+import classNames from 'classnames/bind';
+
 import * as searchServices from '~/apiServices/searchServices';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
-import { useEffect, useState, useRef } from 'react';
+import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -33,6 +33,7 @@ function Search() {
             setLoading(true);
 
             const result = await searchServices.search(debounced);
+
             setSearchResult(result);
             setLoading(false);
         };
@@ -48,6 +49,13 @@ function Search() {
 
     const handleHideResult = () => {
         setShowResult(false);
+    };
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
     };
 
     return (
@@ -72,7 +80,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => setShowResult(true)}
                 />
                 {!!searchValue && !loading && (
@@ -81,7 +89,7 @@ function Search() {
                     </button>
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch} />}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon />
                 </button>
             </div>
