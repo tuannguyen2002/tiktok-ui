@@ -123,7 +123,6 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text>Upload</Button>
                             <Button primary>Log in</Button>
                         </>
                     )}

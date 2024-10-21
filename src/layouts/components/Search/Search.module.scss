@@ -1,12 +1,12 @@
 .search,
 .search-result {
-    width: 361px;
+    width: 500px;
 }
 
 .search {
     position: relative;
     height: var(--search-height);
-    padding-left: 16px;
+    padding-left: 8px;
     display: flex;
     background-color: rgba(22, 24, 35, 0.06);
     border-radius: var(--search-border-radius);
@@ -16,6 +16,7 @@
         flex: 1;
         height: 100%;
         padding-right: 40px;
+        padding-left: 10px;
         color: var(--black);
         font-size: 1.6rem;
         caret-color: var(--primary);

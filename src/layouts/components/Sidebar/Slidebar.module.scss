@@ -1,5 +1,17 @@
 .wrapper {
-    width: 356px;
+    width: 224px;
+    overflow-y: hidden;
+    max-height: calc(100vh - 60px);
     padding: 20px 0px 26px 8px;
-    margin-left: -20px;
+    transition: overflow 1s;
+
+    float: left;
+    z-index: 1000;
+    position: fixed;
+    top: 60px;
+    left: 0;
+
+    &:hover {
+        overflow-y: overlay;
+    }
 }

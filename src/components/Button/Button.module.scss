@@ -74,6 +74,20 @@
     }
 }
 
+.textOnly {
+    font-family: TikTokFont, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    height: 21px;
+    flex-shrink: 0;
+    color: var(--white);
+}
+
 //Button sizes
 .small {
     min-width: 88px;

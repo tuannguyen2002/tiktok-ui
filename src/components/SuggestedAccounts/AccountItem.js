@@ -8,15 +8,16 @@ import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './SuggestedAccounts.module.scss';
 import AccountPreview from './AccountPreview/AccountPreview';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
     const renderPreview = (props) => {
         return (
             <div tabIndex="-1" {...props}>
                 <PopperWrapper>
-                    <AccountPreview />
+                    <AccountPreview dataPreview={data} />
                 </PopperWrapper>
             </div>
         );
@@ -24,19 +25,22 @@ function AccountItem() {
 
     return (
         <div>
-            <Tippy interactive delay={[800, 0]} offset={[-20, 0]} placement="bottom" render={renderPreview}>
+            <Tippy
+                appendTo={document.body}
+                interactive
+                delay={[800, 0]}
+                offset={[-20, 0]}
+                placement="bottom"
+                render={renderPreview}
+            >
                 <div className={cx('account-item')}>
-                    <img
-                        className={cx('avatar')}
-                        src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/b2b0c654a9266e8b084cd824c2c4ef4e.jpeg?lk3s=a5d48078&nonce=9777&refresh_token=c5bb0b704f3ad88179b498fa4dd440b4&x-expires=1725523200&x-signature=llQH3w0HeMe6DC6BhC51f66HrfY%3D&shp=a5d48078&shcp=81f88b70"
-                        alt="quoc"
-                    />
+                    <Image className={cx('avatar')} src={data.avatar} alt={data.full_name} />
                     <div className={cx('item-info')}>
                         <p className={cx('nickname')}>
-                            <strong>quocnguyenphu</strong>
-                            <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                            <strong>{data.nickname}</strong>
+                            {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
                         </p>
-                        <p className={cx('name')}>Quoc NGuyen Phu</p>
+                        <p className={cx('name')}>{data.full_name}</p>
                     </div>
                 </div>
             </Tippy>

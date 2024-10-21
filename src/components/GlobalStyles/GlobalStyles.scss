@@ -10,7 +10,7 @@
 
     //Default Layout
     --default-layout-header-height: 60px;
-    --default-layout-width: 1150px;
+    --default-layout-width: 1528px;
     --default-layout-horizontal-spacer: 24px;
 }
 
@@ -25,12 +25,13 @@ html {
 }
 
 body {
+    min-height: 100vh;
     font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
-    overflow: overlay;
+    overflow: hidden clip;
 }
 
 //scrollbar css
