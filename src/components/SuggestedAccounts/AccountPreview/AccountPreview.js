@@ -4,6 +4,7 @@ import Button from '~/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Image from '~/components/Image';
+import { formatNumber } from '~/utils/formatNumber';
 
 const cx = classNames.bind(styles);
 
@@ -23,9 +24,9 @@ function AccountPreview({ dataPreview }) {
                 </p>
                 <p className={cx('name')}>{dataPreview.full_name}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>{dataPreview.followers_count} </strong>
+                    <strong className={cx('value')}>{formatNumber(dataPreview.followers_count)} </strong>
                     <span className={cx('label')}>Follower</span>
-                    <strong className={cx('value')}>{dataPreview.likes_count} </strong>
+                    <strong className={cx('value')}>{formatNumber(dataPreview.likes_count)} </strong>
                     <span className={cx('label')}>Like</span>
                 </p>
             </div>
